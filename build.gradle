@@ -31,7 +31,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClassName = 'tp3.Appli'
+    mainClassName = 'tp3.Main'
 }
 
 jar {
@@ -39,7 +39,7 @@ jar {
     baseName 'pizzeria'
 
     manifest { 
-        attributes 'Main-Class': 'tp3.Appli' 
+        attributes 'Main-Class': 'tp3.Main' 
     } 
 
 }

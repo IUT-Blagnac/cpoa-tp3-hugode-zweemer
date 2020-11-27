@@ -1,6 +1,6 @@
 package tp3;
 
-public abstract class SimpleFabriqueDePizzas {
+public abstract class FactoryPizzas {
 
 	public abstract Pizza creerPizza(String type);
 	

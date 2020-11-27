@@ -4,7 +4,11 @@ package tp3;
  * @depend - * - Pizza
  */
 public abstract class Pizzeria {
-
+	public FactoryPizzas lafactory;
+	
+	public Pizzeria(FactoryPizzas factory) {
+		this.lafactory = factory;
+	}
 	/**
 	 * @param type
 	 * @return a Pizza object according to the type
@@ -21,5 +25,7 @@ public abstract class Pizzeria {
 		return pizza;
 	}
 	
-	protected abstract Pizza creerPizza(String type);
+	protected Pizza creerPizza(String type) {
+		return lafactory.creerPizza(type);
+	}
 }

@@ -1,6 +1,6 @@
 package tp3;
 
-public class Appli {
+public class Main {
 
 	public static void main (String[] argv) {
 		
