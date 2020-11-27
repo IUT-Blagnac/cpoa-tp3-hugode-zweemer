@@ -1,8 +1,24 @@
 @startuml
 
-class "Appli"
+class "FactoryPizzaBrest" {
+  creerPizza(String) : Pizza
+}
+
+class "FactoryPizzaStrasbourg" {
+  creerPizza(String) : Pizza
+}
+
+abstract class "FactoryPizzas" {
+  creerPizza(String) : Pizza
+}
+
+class "Main"
 
 abstract class "Pizza" {
+  nom : String
+  pate : String
+  sauce : String
+  garniture : ArrayList
   couper()
   cuire()
   emballer()
@@ -17,9 +33,18 @@ class "PizzaFromageStyleStrasbourg"
 
 class "PizzaGrecque"
 
+class "PizzaGrecqueStyleBrest"
+
+class "PizzaGrecqueStyleStrasbourg"
+
 class "PizzaPoivrons"
 
+class "PizzaPoivronsStyleBrest"
+
+class "PizzaPoivronsStyleStrasbourg"
+
 abstract class "Pizzeria" {
+  lafactory : FactoryPizzas
   commanderPizza(String) : Pizza
 }
 
@@ -27,30 +52,23 @@ class "PizzeriaBrest"
 
 class "PizzeriaStrasbourg"
 
-class "SimpleFabriqueDePizzaBrest" {
-  creerPizza(String) : Pizza
-}
-
-class "SimpleFabriqueDePizzaStrasbourg" {
-  creerPizza(String) : Pizza
-}
-
-abstract class "SimpleFabriqueDePizzas" {
-  creerPizza(String) : Pizza
-}
-
+"FactoryPizzaBrest" --> "Pizza" : use
+"FactoryPizzaStrasbourg" --> "Pizza" : use
+"FactoryPizzas" <|-- "FactoryPizzaBrest"
+"FactoryPizzas" <|-- "FactoryPizzaStrasbourg"
+"FactoryPizzas" --> "Pizza" : use
+"PizzaFromage" <|-- "PizzaFromageStyleBrest"
+"PizzaFromage" <|-- "PizzaFromageStyleStrasbourg"
+"PizzaGrecque" <|-- "PizzaGrecqueStyleBrest"
+"PizzaGrecque" <|-- "PizzaGrecqueStyleStrasbourg"
 "Pizza" <|-- "PizzaFromage"
-"Pizza" <|-- "PizzaFromageStyleBrest"
-"Pizza" <|-- "PizzaFromageStyleStrasbourg"
 "Pizza" <|-- "PizzaGrecque"
 "Pizza" <|-- "PizzaPoivrons"
+"PizzaPoivrons" <|-- "PizzaPoivronsStyleBrest"
+"PizzaPoivrons" <|-- "PizzaPoivronsStyleStrasbourg"
+"Pizzeria" --> "FactoryPizzas" : lafactory
 "Pizzeria" --> "Pizza" : use
 "Pizzeria" <|-- "PizzeriaBrest"
 "Pizzeria" <|-- "PizzeriaStrasbourg"
-"SimpleFabriqueDePizzaBrest" --> "Pizza" : use
-"SimpleFabriqueDePizzaStrasbourg" --> "Pizza" : use
-"SimpleFabriqueDePizzas" --> "Pizza" : use
-"SimpleFabriqueDePizzas" <|-- "SimpleFabriqueDePizzaBrest"
-"SimpleFabriqueDePizzas" <|-- "SimpleFabriqueDePizzaStrasbourg"
 
 @enduml

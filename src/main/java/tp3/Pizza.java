@@ -31,7 +31,7 @@ public abstract class Pizza {
 		// TODO Auto-generated method stub
 		
 	}
-	public String getnom() {
+	public String getNom() {
 		return this.nom;
 		
 	}
