@@ -47,5 +47,5 @@ jar {
 
 classDiagram { // (1)
     packageName = "tp3" // (2)
-    outputFile = project.file('docs/tp3.plantuml') // (3)
+    outputFile = project.file('docs/TP3.plantuml') // (3)
 }
