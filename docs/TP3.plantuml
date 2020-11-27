@@ -1,20 +1,20 @@
 @startuml
 
-class "FactoryPizzaBrest" {
+class FactoryPizzaBrest {
   creerPizza(String) : Pizza
 }
 
-class "FactoryPizzaStrasbourg" {
+class FactoryPizzaStrasbourg {
   creerPizza(String) : Pizza
 }
 
-abstract class "FactoryPizzas" {
+abstract class FactoryPizzas {
   creerPizza(String) : Pizza
 }
 
-class "Main"
+class Main
 
-abstract class "Pizza" {
+abstract class Pizza {
   nom : String
   pate : String
   sauce : String
@@ -25,50 +25,50 @@ abstract class "Pizza" {
   preparer()
 }
 
-class "PizzaFromage"
+class PizzaFromage
 
-class "PizzaFromageStyleBrest"
+class PizzaFromageStyleBrest
 
-class "PizzaFromageStyleStrasbourg"
+class PizzaFromageStyleStrasbourg
 
-class "PizzaGrecque"
+class PizzaGrecque
 
-class "PizzaGrecqueStyleBrest"
+class PizzaGrecqueStyleBrest
 
-class "PizzaGrecqueStyleStrasbourg"
+class PizzaGrecqueStyleStrasbourg
 
-class "PizzaPoivrons"
+class PizzaPoivrons
 
-class "PizzaPoivronsStyleBrest"
+class PizzaPoivronsStyleBrest
 
-class "PizzaPoivronsStyleStrasbourg"
+class PizzaPoivronsStyleStrasbourg
 
-abstract class "Pizzeria" {
+abstract class Pizzeria {
   lafactory : FactoryPizzas
   commanderPizza(String) : Pizza
 }
 
-class "PizzeriaBrest"
+class PizzeriaBrest
 
-class "PizzeriaStrasbourg"
+class PizzeriaStrasbourg
 
-"FactoryPizzaBrest" --> "Pizza" : use
-"FactoryPizzaStrasbourg" --> "Pizza" : use
-"FactoryPizzas" <|-- "FactoryPizzaBrest"
-"FactoryPizzas" <|-- "FactoryPizzaStrasbourg"
-"FactoryPizzas" --> "Pizza" : use
-"PizzaFromage" <|-- "PizzaFromageStyleBrest"
-"PizzaFromage" <|-- "PizzaFromageStyleStrasbourg"
-"PizzaGrecque" <|-- "PizzaGrecqueStyleBrest"
-"PizzaGrecque" <|-- "PizzaGrecqueStyleStrasbourg"
-"Pizza" <|-- "PizzaFromage"
-"Pizza" <|-- "PizzaGrecque"
-"Pizza" <|-- "PizzaPoivrons"
-"PizzaPoivrons" <|-- "PizzaPoivronsStyleBrest"
-"PizzaPoivrons" <|-- "PizzaPoivronsStyleStrasbourg"
-"Pizzeria" --> "FactoryPizzas" : lafactory
-"Pizzeria" --> "Pizza" : use
-"Pizzeria" <|-- "PizzeriaBrest"
-"Pizzeria" <|-- "PizzeriaStrasbourg"
+FactoryPizzaBrest --> Pizza : use
+FactoryPizzaStrasbourg --> Pizza : use
+FactoryPizzas <|-- FactoryPizzaBrest
+FactoryPizzas <|-- FactoryPizzaStrasbourg
+FactoryPizzas --> Pizza : use
+PizzaFromage <|-- PizzaFromageStyleBrest
+PizzaFromage <|-- PizzaFromageStyleStrasbourg
+PizzaGrecque <|-- PizzaGrecqueStyleBrest
+PizzaGrecque <|-- PizzaGrecqueStyleStrasbourg
+Pizza <|-- PizzaFromage
+Pizza <|-- PizzaGrecque
+Pizza <|-- PizzaPoivrons
+PizzaPoivrons <|-- PizzaPoivronsStyleBrest
+PizzaPoivrons <|-- PizzaPoivronsStyleStrasbourg
+Pizzeria --> "1" FactoryPizzas : lafactory
+Pizzeria --> Pizza : use
+Pizzeria <|-- PizzeriaBrest
+Pizzeria <|-- PizzeriaStrasbourg
 
 @enduml
