@@ -1,9 +1,11 @@
+package tp3;
 
-public class SimpleFabriqueDePizzaBrest extends SimpleFabriqueDePizzas {
+public class SimpleFabriqueDePizzaStrasbourg extends SimpleFabriqueDePizzas {
 
 	public Pizza creerPizza(String type) {
+		
 		if (type.equals("fromage")) {
-			return new PizzaFromageStyleBrest();
+			return new PizzaFromageStyleStrasbourg();
 		} else if (type.equals("grecque")) {
 			return new PizzaGrecque();
 		} else {

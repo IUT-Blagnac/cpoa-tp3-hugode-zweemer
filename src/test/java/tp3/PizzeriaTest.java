@@ -1,6 +1,12 @@
+package tp3;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import tp3.Pizza;
+import tp3.Pizzeria;
+import tp3.PizzeriaBrest;
+import tp3.PizzeriaStrasbourg;
 
 public class PizzeriaTest {
 

@@ -1,0 +1,56 @@
+@startuml
+
+class "Appli"
+
+abstract class "Pizza" {
+  couper()
+  cuire()
+  emballer()
+  preparer()
+}
+
+class "PizzaFromage"
+
+class "PizzaFromageStyleBrest"
+
+class "PizzaFromageStyleStrasbourg"
+
+class "PizzaGrecque"
+
+class "PizzaPoivrons"
+
+abstract class "Pizzeria" {
+  commanderPizza(String) : Pizza
+}
+
+class "PizzeriaBrest"
+
+class "PizzeriaStrasbourg"
+
+class "SimpleFabriqueDePizzaBrest" {
+  creerPizza(String) : Pizza
+}
+
+class "SimpleFabriqueDePizzaStrasbourg" {
+  creerPizza(String) : Pizza
+}
+
+abstract class "SimpleFabriqueDePizzas" {
+  creerPizza(String) : Pizza
+}
+
+"Pizza" <|-- "PizzaFromage"
+"Pizza" <|-- "PizzaFromageStyleBrest"
+"Pizza" <|-- "PizzaFromageStyleStrasbourg"
+"Pizza" <|-- "PizzaGrecque"
+"Pizza" <|-- "PizzaPoivrons"
+"Pizzeria" --> "Pizza" : use
+"Pizzeria" <|-- "PizzeriaBrest"
+"Pizzeria" <|-- "PizzeriaStrasbourg"
+"SimpleFabriqueDePizzaBrest" --> "Pizza" : use
+"SimpleFabriqueDePizzaStrasbourg" --> "Pizza" : use
+"SimpleFabriqueDePizzas" --> "Pizza" : use
+"SimpleFabriqueDePizzas" <|-- "SimpleFabriqueDePizzaBrest"
+"SimpleFabriqueDePizzas" <|-- "SimpleFabriqueDePizzaStrasbourg"
+
+@enduml

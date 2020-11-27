@@ -1,7 +1,10 @@
+package tp3;
 
-public class SimpleFabriqueDePizzaStrasbourg extends SimpleFabriqueDePizzas {
-
-	public Pizza creerPizza(String type) {
+public class PizzeriaStrasbourg extends Pizzeria {
+	
+	@Override
+	protected
+	Pizza creerPizza(String type) {
 		
 		if (type.equals("fromage")) {
 			return new PizzaFromageStyleStrasbourg();
